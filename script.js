@@ -141,3 +141,19 @@ document.addEventListener('click', (event) => {
     hamburger.classList.remove('open');
   }
 });
+
+
+
+  // Scroll animation observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in-view");
+      } else {
+        entry.target.classList.remove("in-view");
+      }
+    });
+  }, { threshold: 0.2 });
+
+  // Apply to all scroll-animated elements
+  document.querySelectorAll(".animate-on-scroll").forEach((el) => observer.observe(el));

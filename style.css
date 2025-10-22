@@ -24,6 +24,42 @@ html, body {
   overflow-x: hidden;
 }
 
+
+
+/* Scroll animation base */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.animate-on-scroll.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+.animate-left {
+  transform: translateX(-50px);
+}
+.animate-right {
+  transform: translateX(50px);
+}
+
+/* Bounce animations for icons */
+@keyframes bounceUpDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes bounceDownUp {
+  0%, 100% { transform: translateY(-8px); }
+  50% { transform: translateY(0); }
+}
+.hero-social-1 {
+  animation: bounceUpDown 1.5s ease-in-out infinite;
+}
+.hero-social-2 {
+  animation: bounceDownUp 1.5s ease-in-out infinite;
+}
+
+
 /* Navbar css*/
 .navbar-container{
     position: fixed;
@@ -882,6 +918,7 @@ p.stat-label {
     background-color: #fff;
     color: black;
 }
+
 
 /* =========================
    RESPONSIVE DESIGN
